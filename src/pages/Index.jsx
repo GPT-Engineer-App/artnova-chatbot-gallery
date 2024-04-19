@@ -1,10 +1,15 @@
 import { Box, Flex, Text, Image, Button, VStack, Input, useToast } from "@chakra-ui/react";
+import { useState } from "react";
 import { FaHome, FaImages, FaUser } from "react-icons/fa";
 
 const Index = () => {
   const toast = useToast();
+  const [messages, setMessages] = useState([]);
 
   const sendMessage = () => {
+    const inputElement = document.querySelector("input");
+    const newMessage = inputElement.value;
+    setMessages((prev) => [...prev, newMessage]);
     toast({
       title: "Message sent.",
       description: "We've received your message and will respond soon!",
@@ -12,6 +17,7 @@ const Index = () => {
       duration: 5000,
       isClosable: true,
     });
+    inputElement.value = "";
   };
 
   return (
@@ -39,6 +45,13 @@ const Index = () => {
               Chat with Us
             </Text>
             <Text>Welcome to ArtNova. Please describe your tattoo requirements.</Text>
+            <VStack spacing={2} align="stretch">
+              {messages.map((msg, index) => (
+                <Text key={index} bg="gray.100" p={2} borderRadius="md">
+                  {msg}
+                </Text>
+              ))}
+            </VStack>
             <Flex width="100%" mt="auto">
               <Input placeholder="Type your message here..." borderColor="gray.400" flexGrow={1} />
               <Button onClick={sendMessage} colorScheme="blue" variant="solid" ml={2}>

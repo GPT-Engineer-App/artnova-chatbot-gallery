@@ -32,15 +32,15 @@ const Index = () => {
           </Button>
         </Flex>
       </Flex>
-      <Flex height="calc(100vh - 64px)">
-        <Box flex="1" p={4} borderRight="1px" borderColor="gray.200">
+      <Flex height="calc(100vh - 64px)" bg="#E8E8E8">
+        <Box flex="1" p={4} borderRight="1px" borderColor="gray.200" boxShadow="base">
           <VStack spacing={4}>
             <Text fontSize="lg" fontWeight="bold">
               Chat with Us
             </Text>
             <Text>Welcome to ArtNova. Please describe your tattoo requirements.</Text>
-            <Input placeholder="Type your message here..." />
-            <Button onClick={sendMessage} colorScheme="blue">
+            <Input placeholder="Type your message here..." borderColor="gray.400" />
+            <Button onClick={sendMessage} colorScheme="blue" variant="solid">
               Send
             </Button>
           </VStack>

@@ -39,10 +39,12 @@ const Index = () => {
               Chat with Us
             </Text>
             <Text>Welcome to ArtNova. Please describe your tattoo requirements.</Text>
-            <Input placeholder="Type your message here..." borderColor="gray.400" />
-            <Button onClick={sendMessage} colorScheme="blue" variant="solid">
-              Send
-            </Button>
+            <Flex width="100%" mt="auto">
+              <Input placeholder="Type your message here..." borderColor="gray.400" flexGrow={1} />
+              <Button onClick={sendMessage} colorScheme="blue" variant="solid" ml={2}>
+                Send
+              </Button>
+            </Flex>
           </VStack>
         </Box>
         <Flex flex="1" p={4} flexWrap="wrap" justifyContent="space-around" alignItems="center">
